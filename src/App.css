@@ -1,19 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap');
 
 html {
   font-size: 16px;
   box-sizing: border-box;
 }
+
 *,
 *:before,
 *:after {
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
 }
+
 body {
   margin: 0;
   font: 1rem sans-serif;
 }
+
 h1,
 h2,
 h3,
@@ -23,134 +27,287 @@ h6 {
   margin: 0 0 0.2em 0;
   text-transform: capitalize;
 }
+
 ul {
   padding: 0;
   margin: 0;
   list-style: none;
 }
+
 .logo {
   position: relative;
 }
 
 .logo img {
-  height: 100%;
+  height: 100px;
 }
+
 .logo span {
   position: absolute;
   top: -20000px;
 }
+
 .topo h1 {
   width: 200px;
-  height: 80%;
-  background-color: ;
   margin: 0 auto;
 }
+
 .topo ul {
-  background: #c8e0e8;
-  border-bottom: 1px solid #cacaca;
+  background: #6497b1;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
 }
+
 .topo li {
   display: inline-block;
-  border-right: 1px solid #999;
+  border-right: 1px solid #fff;
 }
+
 .topo li a {
   text-transform: uppercase;
+  font-family: "TikTok Sans", sans-serif;
   font-weight: bold;
   color: #000;
   text-decoration: none;
   display: block;
   padding: 8px 20px;
 }
+
 .topo li a:hover {
   color: #666;
 }
+
 .topo li:first-child a {
-  border-left: 1px solid #999;
+  border-left: 1px solid #fff;
 }
-.topo {
-  height: 20vh;
-}
+
 .rodape {
+  border-top: 1px solid #fff;
   height: 7.5vh;
 }
-.principal {
-  min-height: 72.5vh;
-}
+
 .principal a {
-  color: #0273a9;
+  color: #005b96;
   text-decoration: none;
 }
+
 .thumb img {
   display: block;
   width: 80px;
+  border-radius: 4px;
 }
+
 .topo,
 .rodape {
   text-align: center;
-  background: #eaefef;
+  background: #c8e0e8;
   padding: 1px 0;
 }
+
 .principal {
+  min-height: 71.3vh;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
-  background: #eaefef;
   max-width: 100%;
+  padding-top: 2.5rem;
   padding-left: 4rem;
   padding-right: 4rem;
   margin: 0 auto;
+  position: relative;
 }
+
 .principal h2 {
+  top: 0;
+  left: 0;
+  width: 100vw;
+  position: absolute;
   flex-basis: 100%;
   font-size: 1em;
   margin: 0;
-  padding: 6px 5px;
+  padding: 6px 2rem;
+  line-height: 2rem;
   color: #fff;
-  background: #027399;
+  background: #005b96;
   height: 2.5rem;
 }
+
 .principal h3 {
   font-size: 1em;
+  margin-top: 1rem;
+  width: 100%;
 }
+
 .principal ol {
   margin-top: 8px;
 }
+
 .card {
   display: flex;
   flex: 0 1 50%;
   padding: 8px 0 10px 10px;
   border-bottom: 1px solid #ccc;
 }
+
+.card:nth-last-child(1):nth-child(odd),
+.card:nth-last-child(1):nth-child(even),
+.card:nth-last-child(2):nth-child(even) {
+  border: none;
+}
+
 .card h2 {
   font-size: 16px;
 }
+
 .card p {
   font-size: 14px;
   margin: 0;
 }
+
 .thumb {
   margin-right: 5px;
 }
+
 .detalhes {
   display: flex;
   flex-direction: column;
 }
-.rodape {
-  margin-top: 4px;
-}
+
 .livro {
   overflow: auto;
   margin: 20px 0;
 }
+
 .livro img {
   display: block;
   width: 180px;
   float: left;
   margin: 0 10px;
 }
+
+.buy-button {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #005b96;
+  color: #fff;
+  text-transform: uppercase;
+  transition: 0.5s;
+  width: 300px;
+}
+
+.buy-button:hover {
+  background-color: #6497b1;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.buy-button:active {
+  background-color: #245771;
+}
+
+.buy-button img {
+  height: 1rem;
+  width: 1rem;
+}
+
+.not-found {
+  width: 60%;
+  margin: 0 auto 2rem auto;
+}
+
+.not-found h1 {
+  margin: 2rem 0 .5rem 0;
+}
+
+.not-found img {
+  width: 80%;
+  border-radius: 24px;
+}
+
+.carrinho-compras {
+  margin: 1rem auto;
+  width: 80%;
+}
+
+
+.carrinho {
+  background: #c8e0e8;
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.carrinho .thumb {
+  width: 10%;
+  margin-right: 2rem;
+}
+
+.carrinho img {
+  width: 100%;
+}
+
+.item {
+  border-left: 4px solid #005b96;
+  padding-left: 2rem;
+}
+
+.book-quantity-control {
+  display: flex;
+  width: 100%;
+  gap: .2rem;
+}
+
+.book-quantity {
+  padding: 1rem;
+  background-color: #005b96;
+  color: #fff;
+  text-transform: uppercase;
+  border-radius: 4px;
+}
+
+.remove-button,
+.quantity-button {
+  padding: .2rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #005b96;
+  color: #fff;
+  transition: 0.5s;
+}
+
+.total {
+  background-color: #005b96;
+  color: #fff;
+  padding: 0.5rem 2rem;
+  border-radius: 4px;
+  line-height: 2rem;
+  display: flex;
+  justify-content: end;
+  gap: 1rem;
+}
+
+.total span {
+  font-weight: bold;
+}
+
 @media screen and (max-width: 600px) {
   .principal {
     flex-direction: column;
+  }
+
+  .topo ul {
+    font-size: 12px;
+    padding: 0;
+  }
+
+  .rodape {
+    height: 6rem;
+    font-size: 12px;
   }
 }

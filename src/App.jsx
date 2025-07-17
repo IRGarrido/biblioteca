@@ -11,21 +11,21 @@ import Frontend from './components/Frontend'
 import Programacao from './components/Programacao'
 import NotFound from './components/NotFound'
 import Rodape from './components/Rodape'
+import Carrinho from './components/Carrinho'
 
 import { Route, Routes, useParams } from 'react-router-dom'
-import Cart from './components/Cart'
 
-const LivroRouterHandler = ({livros, carrinho}) => {
-  const {livroSlug} = useParams();
+const LivroRouterHandler = ({ livros, setCarrinho }) => {
+  const { livroSlug } = useParams();
   const livro = livros.find(l => l.slug === livroSlug);
 
-  if(!livro) return <NotFound/>;
-  return <Livro livro = {livro} carrinho={carrinho}/>
+  if (!livro) return <NotFound />;
+  return <Livro livro={livro} setCarrinho={setCarrinho} />
 }
 
 const App = () => {
   const [livros, setLivros] = useState([]);
-  const [carrinho, setCarrinho] = useState(["9788575227145"]);
+  const [carrinho, setCarrinho] = useState([{ id: "9788575227145", quantidade: 1 }]);
   const [erro, setErro] = useState(null);
 
   useEffect(() => {
@@ -35,32 +35,32 @@ const App = () => {
         setLivros(response.data);
         console.log("Livros carregados!")
       }
-      catch(error){
+      catch (error) {
         console.error("Erro ao carregar livros: ", error);
         setErro("Falha ao carregar os livros. Tente novamente mais tarde!");
       }
     };
     carregarLivros();
-  },[]);
-  
+  }, []);
+
   return (
     <>
-     <Topo/>
+      <Topo />
       <main className="principal">
         {erro && <p className='erro'>{erro}</p>}
-      <Routes>
-        <Route path='/' element={<Home livros={livros}/>}/>
-        <Route path='/frontend' element={<Frontend livros={livros}/>}/>
-        <Route path='/programacao' element={<Programacao livros={livros}/>}/>
-        <Route path='/design' element={<Design livros={livros}/>}/>
-        <Route path='/catalogo' element={<Catalogo livros={livros}/>}/>
-        <Route path='/cart' element={<Cart livros={livros} carrinho={carrinho} setCarrinho={setCarrinho}/>}/>
-        <Route path='/livro/:livroSlug' element={<LivroRouterHandler livros={livros} carrinho={carrinho} setCarrinho={setCarrinho}/>}/>
-        <Route path='/notfound' element={<NotFound/>}/>
-        <Route path='*' element={<NotFound/>}/>
-      </Routes>
+        <Routes>
+          <Route path='/' element={<Home livros={livros} />} />
+          <Route path='/frontend' element={<Frontend livros={livros} />} />
+          <Route path='/programacao' element={<Programacao livros={livros} />} />
+          <Route path='/design' element={<Design livros={livros} />} />
+          <Route path='/catalogo' element={<Catalogo className='catalogo' livros={livros} />} />
+          <Route path='/carrinho' element={<Carrinho livros={livros} carrinho={carrinho} setCarrinho={setCarrinho} />} />S
+          <Route path='/livro/:livroSlug' element={<LivroRouterHandler livros={livros} setCarrinho={setCarrinho} />} />
+          <Route path='/notfound' element={<NotFound />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
       </main>
-      <Rodape/>
+      <Rodape />
     </>
   )
 }

@@ -4,7 +4,8 @@ import { NavLink } from 'react-router-dom';
 const Navegacao = () => {
 
     const linkCorrente = ({isActive}) => ({
-        color:isActive ? "#0273a9":"inherit",
+        color:isActive ? "#03396c":"inherit",
+        background:isActive ? "#c8e0e8":"inherit",
         fontWeight:isActive ? "bold":"normal",}
     );
     return (
@@ -37,7 +38,7 @@ const Navegacao = () => {
                 </li>
                 <li>
                     <NavLink
-                        to="/cart"
+                        to="/carrinho"
                         style={linkCorrente}>Carrinho</NavLink>
                 </li>
             </ul>

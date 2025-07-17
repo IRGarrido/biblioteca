@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Catalogo = ({livros}) => {
+const Catalogo = ({ livros }) => {
   return (
-    <main className='principal'>
-      <h2>Categoria Frontend</h2>
+    <>
+      <h2>Todos os livros</h2>
       <ol>
         {livros
           .filter(livro => livro.categoria === 'frontend')
@@ -14,7 +14,7 @@ const Catalogo = ({livros}) => {
             </li>
           ))}
       </ol>
-      <h2>Categoria Design</h2>
+      <h3>Categoria Design</h3>
       <ol>
         {livros
           .filter(livro => livro.categoria === 'design')
@@ -24,7 +24,7 @@ const Catalogo = ({livros}) => {
             </li>
           ))}
       </ol>
-      <h2>Categoria Programação</h2>
+      <h3>Categoria Programação</h3>
       <ol>
         {livros
           .filter(livro => livro.categoria === 'programacao')
@@ -34,7 +34,7 @@ const Catalogo = ({livros}) => {
             </li>
           ))}
       </ol>
-    </main>
+    </>
   )
 }
 
