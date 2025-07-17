@@ -14,6 +14,7 @@ import Rodape from './components/Rodape'
 import Carrinho from './components/Carrinho'
 
 import { Route, Routes, useParams } from 'react-router-dom'
+import Pagamento from './components/Pagamento'
 
 const LivroRouterHandler = ({ livros, setCarrinho }) => {
   const { livroSlug } = useParams();
@@ -24,8 +25,9 @@ const LivroRouterHandler = ({ livros, setCarrinho }) => {
 }
 
 const App = () => {
+  const [total, setTotal] = useState(0);
   const [livros, setLivros] = useState([]);
-  const [carrinho, setCarrinho] = useState([{ id: "9788575227145", quantidade: 1 }]);
+  const [carrinho, setCarrinho] = useState([]);
   const [erro, setErro] = useState(null);
 
   useEffect(() => {
@@ -54,8 +56,9 @@ const App = () => {
           <Route path='/programacao' element={<Programacao livros={livros} />} />
           <Route path='/design' element={<Design livros={livros} />} />
           <Route path='/catalogo' element={<Catalogo className='catalogo' livros={livros} />} />
-          <Route path='/carrinho' element={<Carrinho livros={livros} carrinho={carrinho} setCarrinho={setCarrinho} />} />S
-          <Route path='/livro/:livroSlug' element={<LivroRouterHandler livros={livros} setCarrinho={setCarrinho} />} />
+          <Route path='/carrinho' element={<Carrinho livros={livros} carrinho={carrinho} setCarrinho={setCarrinho} total={total} setTotal={setTotal} />} />
+          <Route path='/carrinho/pagamento' element={<Pagamento total={total} setCarrinho={setCarrinho} />} />
+          <Route path='/livro/:livroSlug' element={<LivroRouterHandler livros={livros} total={total} setTotal={setTotal} setCarrinho={setCarrinho} />} />
           <Route path='/notfound' element={<NotFound />} />
           <Route path='*' element={<NotFound />} />
         </Routes>

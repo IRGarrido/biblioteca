@@ -199,15 +199,21 @@ ul {
   width: 300px;
 }
 
+
+.remove-button:hover,
+.quantity-button:hover,
+.pay-button:hover,
 .buy-button:hover {
-  background-color: #6497b1;
+  background-color: #03396c;
   color: #fff;
   font-weight: bold;
-  text-transform: uppercase;
 }
 
+.remove-button:active,
+.quantity-button:active,
+.pay-button:active,
 .buy-button:active {
-  background-color: #245771;
+  background-color: #005b96;
 }
 
 .buy-button img {
@@ -294,6 +300,26 @@ ul {
 
 .total span {
   font-weight: bold;
+}
+
+.pay-button {
+  background-color: inherit;
+  color: #fff;
+  border: 2px solid #fff;
+  text-transform: uppercase;
+  border-radius: 8px;
+  padding: 0 2rem;
+  transition: 0.5s;
+}
+
+.payment-select .form-title {
+  display: block;
+  font-weight: bold;
+  line-height: 2rem;
+}
+
+.link-cancelar  {
+  color: #fff;
 }
 
 @media screen and (max-width: 600px) {
